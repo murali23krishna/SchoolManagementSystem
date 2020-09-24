@@ -1,18 +1,30 @@
 package com.murali.school.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name="OAUTH_ACCESS_TOKEN")
 public class OAuthAccessToken {
 
 	private String token_id;
-	private Long token;
+	@Lob
+	@Type(type="org.hibernate.type.BinaryType")
+	@Column(name = "token")
+	private byte[] token;
+	@Id
 	private String authentication_id;
 	private String user_name;
 	private String client_id;
-	private Long authentication;
+	@Lob
+	@Type(type="org.hibernate.type.BinaryType")
+	@Column(name = "authentication")
+	private byte[] authentication;
 	private String refresh_token;
 	public String getToken_id() {
 		return token_id;
@@ -20,10 +32,10 @@ public class OAuthAccessToken {
 	public void setToken_id(String token_id) {
 		this.token_id = token_id;
 	}
-	public Long getToken() {
+	public byte[] getToken() {
 		return token;
 	}
-	public void setToken(Long token) {
+	public void setToken(byte[] token) {
 		this.token = token;
 	}
 	public String getAuthentication_id() {
@@ -44,10 +56,10 @@ public class OAuthAccessToken {
 	public void setClient_id(String client_id) {
 		this.client_id = client_id;
 	}
-	public Long getAuthentication() {
+	public byte[] getAuthentication() {
 		return authentication;
 	}
-	public void setAuthentication(Long authentication) {
+	public void setAuthentication(byte[] authentication) {
 		this.authentication = authentication;
 	}
 	public String getRefresh_token() {

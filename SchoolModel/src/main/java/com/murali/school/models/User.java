@@ -1,8 +1,8 @@
 package com.murali.school.models;
 
-import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,20 +11,30 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
-@Table(name="USER")
-public class User implements Serializable{
+@Table(name="TBL_USER")
+public class User extends CommonDto{
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 431665694848361033L;
-	
-	public User() {
+	public User() {		
+		
     }
 
-    public User(User user) {
+    public User(String username, String password, boolean enabled, String email, boolean accountNonExpired,
+			boolean credentialsNonExpired, boolean accountNonLocked, List<Role> roles) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.enabled = enabled;
+		this.email = email;
+		this.accountNonExpired = accountNonExpired;
+		this.credentialsNonExpired = credentialsNonExpired;
+		this.accountNonLocked = accountNonLocked;
+		this.roles = roles;
+	}
+
+	public User(User user) {
         this.username = user.getUsername();
         this.password = user.getPassword();
         this.email = user.getEmail();
@@ -45,7 +55,19 @@ public class User implements Serializable{
 	private boolean accountNonExpired;
 	private boolean credentialsNonExpired;
 	private boolean accountNonLocked;
-	@ManyToMany(fetch = FetchType.EAGER)
+	@Transient
+	private String [] uIRoles;	
+	
+	
+	public String[] getuIRoles() {
+		return uIRoles;
+	}
+
+	public void setuIRoles(String[] uIRoles) {
+		this.uIRoles = uIRoles;
+	}
+
+	@ManyToMany(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
     @JoinTable(name = "role_user", joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
             inverseJoinColumns = {
                     @JoinColumn(name = "role_id", referencedColumnName = "id")})

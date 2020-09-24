@@ -15,6 +15,11 @@ public class TeacherServiceImpl implements TeacherService {
 
 	@Override
 	public Teacher save(Teacher teacher) {
+		Teacher teacherFromDB = this.findTeacherByname(teacher.getName());
+		if(teacherFromDB!=null && teacherFromDB.getName().equalsIgnoreCase(teacher.getName())) {
+			teacher.setErrorMessage("The teacher name is already exist..Please choose other name");
+			return teacher;
+		}
 		return this.repo.save(teacher);
 	}
 
@@ -52,6 +57,11 @@ public class TeacherServiceImpl implements TeacherService {
 
 	public void setRepo(TeacherRepo repo) {
 		this.repo = repo;
+	}
+
+	@Override
+	public Teacher findTeacherByname(String name) {
+		return this.repo.findTeacherByname(name);
 	}
 
 }

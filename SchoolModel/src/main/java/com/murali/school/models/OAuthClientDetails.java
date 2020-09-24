@@ -6,7 +6,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="OAUTH_CLIENT_DETAILS")
-public class OAuthClientDetails {
+public class OAuthClientDetails extends CommonDto{
 	@Id
 	private String client_id ;
 	private String client_secret;

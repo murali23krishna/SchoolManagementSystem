@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="TBL_STUDENT")
-public class Student {
+public class Student extends CommonDto{
 	
 	@Id
 	@GeneratedValue

@@ -9,5 +9,6 @@ public interface TeacherService {
 	Teacher update(Teacher teacher);
 	void delete(int id);
 	Teacher find(int id);
+	Teacher findTeacherByname(String name);
 	
 }

@@ -1,5 +1,6 @@
 package com.murali.school.models;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -13,8 +14,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="ROLE")
-public class Role {
+public class Role implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5226481312335823548L;
 	@Id
 	@GeneratedValue
 	private int id;
