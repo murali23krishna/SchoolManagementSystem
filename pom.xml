@@ -13,7 +13,9 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
-      <modules>
+      <profile>
+	<id>sms</id>
+	<modules>
         <module>SchoolModel</module>
         <module>Authorization-Server</module>
         <module>GatewayService</module>
@@ -24,4 +26,5 @@
 		<module>UIApplication</module>
 		<module>UserManagement</module>
       </modules>
+	</profile>
 </project>
