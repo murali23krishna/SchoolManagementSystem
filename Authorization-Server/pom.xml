@@ -125,7 +125,7 @@
 					<repository>sms/authorizarion-service</repository>
 					<tag>${project.version}</tag>
 					<buildArgs>
-						<JAR_FILE>AuthorizationService.jar</JAR_FILE>
+						<JAR_FILE>target/AuthorizationService.jar</JAR_FILE>
 					</buildArgs>
 				</configuration>
 			</plugin>
