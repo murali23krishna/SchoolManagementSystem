@@ -1,7 +1,7 @@
 version: '3'
 services:
   config:
-    image: sms/config-service:1.0
+    image: config-service:1.0
     environment:
       - JAVA_OPTS=
          -DEUREKA_SERVER=http://discovery:8761/eureka         
@@ -10,11 +10,11 @@ services:
     ports:
       - 9000:9000
   discovery:
-    image: sms/discovery-service:1.0
+    image: discovery-service:1.0
     ports:
       - 8761:8761
   gateway:
-    image: sms/gateway-service:1.0
+    image: gateway-service:1.0
     ports:
       - 8085:8085
   authorization-service:
