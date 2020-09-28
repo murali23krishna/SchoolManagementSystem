@@ -18,14 +18,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Greenwich.SR6</spring-cloud.version>
-		<maven.test.skip>true</maven.test.skip>
-		<project.baseDir>/var/lib/jenkins/workspace/SchoolManagementSystem/Authorization-Server</project.baseDir>
-		<project.version>1.0</project.version>
-		<project.groupId>com.murali.sms</project.groupId>
-		<project.artifactId>AuthorizationService</project.artifactId>
-		<docker.user>murali23krishna</docker.user>
-		<docker.password>bindu@143</docker.password>
-		<docker.url>https://hub.docker.com</docker.url>
+		<maven.test.skip>true</maven.test.skip>		
 	</properties>
 
 	<dependencies>
