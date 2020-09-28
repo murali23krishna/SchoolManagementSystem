@@ -101,7 +101,9 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<finalName>AuthorizationService</finalName>
+					<argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
 				</configuration>
+				
 			</plugin>
 		</plugins>
 	</build>
