@@ -18,7 +18,7 @@ services:
     ports:
       - 8085:8085
   authorization-service:
-    image: sms/authorization-service:1.0
+    image: authorization-service:1.0
     environment:
       - JAVA_OPTS=
         -DEUREKA_SERVER=http://discovery:8761/eureka
@@ -28,7 +28,7 @@ services:
     ports:
       - 9191:9191
   ui-service:
-    image: sms/ui-service:1.0
+    image: ui-service:1.0
     environment:
       - JAVA_OPTS=
         -DEUREKA_SERVER=http://discovery:8761/eureka
@@ -38,7 +38,7 @@ services:
     ports:
       - 8411:8411
   usermanagement:
-    image: sms/usermanagement:1.0
+    image: usermanagement:1.0
     environment:
       - JAVA_OPTS=
         -DEUREKA_SERVER=http://discovery:8761/eureka
@@ -48,7 +48,7 @@ services:
     ports:
       - 9211:9211
   teacher-service:
-    image: sms/teacher-service:1.0
+    image: teacher-service:1.0
     environment:
       - JAVA_OPTS=
         -DEUREKA_SERVER=http://discovery:8761/eureka
@@ -58,7 +58,7 @@ services:
     ports:
       - 9200:9200
   student-service:
-    image: sms/student-service:1.0
+    image: student-service:1.0
     environment:
       - JAVA_OPTS=
         -DEUREKA_SERVER=http://discovery:8761/eureka
